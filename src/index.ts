@@ -1,8 +1,21 @@
 import { Server } from "./server";
 
-const server = new Server(3000);
+export class Main {
+  private server: Server;
+  constructor() {
+    this.server = new Server(3000);
+  }
+  public boot(): void {
+    this.server.start(() => {
+      console.log("Server is running on port 3000");
+    });
+  }
+  public shutdown(): void {
+    this.server.stop(() => {
+      console.log("Server is shutting down");
+    });
+  }
+}
 
-server.start(() => {
-  console.log("Server started on port 3000");
-});
-
+const main = new Main();
+main.boot();
