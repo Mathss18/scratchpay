@@ -17,6 +17,7 @@ export class DentalClinicsProvider implements BaseProvider<DentalClinic> {
   public async getClinics(): Promise<DentalClinic[]> {
     const response = await fetch(this.uri);
     this.clinics = response.json();
+    console.log("[DENTAL] MAKING API CALL");
     return this.clinics;
   }
 

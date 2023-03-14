@@ -18,6 +18,7 @@ export class PetClinicsProvider implements BaseProvider<PetClinic> {
   public async getClinics(): Promise<PetClinic[]> {
     const response = await fetch(this.uri);
     this.clinics = response.json();
+    console.log("[PET] MAKING API CALL");
     return this.clinics;
   }
 
