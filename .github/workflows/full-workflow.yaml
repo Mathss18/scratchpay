@@ -1,4 +1,4 @@
-on: 
+on:
   push:
     branches:
       - master
@@ -8,16 +8,21 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
 
-    - name: Use Node.js 18.14
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18.14'
-      
-    - name: 🔨 Build Project
-      run: npm ci
-    
-    - name: 🔨 Run all tests
-      run: npm test
+      - name: Use Node.js 18.14
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.14"
+
+      - name: 🔨 Build Project
+        run: npm ci
+
+      - name: 🔨 Run all tests
+        run: npm test
+        env:
+          RATE_LIMIT_WINDOW_IN_SECONDS: 60
+          MAX_REQUESTS_PER_WINDOW: 60
+          CACHE_KEY: test
+          CACHE_TTL_IN_SECONDS: 60
