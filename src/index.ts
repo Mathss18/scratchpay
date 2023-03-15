@@ -1,4 +1,6 @@
 import { Server } from "./server";
+import dotenv from "dotenv";
+dotenv.config();
 
 export class Main {
   private server: Server;

@@ -3,15 +3,12 @@ import { SearchClinicsOptions } from "../dtos/search-clinics.dto";
 import { BaseProvider, Clinic } from "../providers/base-provider.provider";
 
 export class ClinicService {
-  protected readonly CACHE_KEY = "clinics";
-  protected readonly CACHE_TTL = 600; // Time in seconds | 10 minutes
-
   constructor(private providers: BaseProvider<unknown>[]) {
     this.providers = providers;
   }
 
   public async getClinics(): Promise<Clinic[]> {
-    const cachedClinics = cacheManager.get(this.CACHE_KEY);
+    const cachedClinics = cacheManager.get(process.env.CACHE_KEY);
     if (cachedClinics) {
       return cachedClinics;
     }
@@ -20,7 +17,11 @@ export class ClinicService {
     );
     const clinics = await Promise.all(clinicRequests);
 
-    cacheManager.set(this.CACHE_KEY, clinics.flat(), this.CACHE_TTL);
+    cacheManager.set(
+      process.env.CACHE_KEY,
+      clinics.flat(),
+      +process.env.CACHE_TTL
+    );
     return clinics.flat();
   }
 
