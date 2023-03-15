@@ -1,7 +1,7 @@
-import express from "express";
+import express, { Request } from "express";
 import { router } from "./router";
+import rateLimit from "express-rate-limit";
 import { Server as HttpServer } from "http";
-
 export class Server {
   public app: express.Application;
   private connection: HttpServer;
@@ -26,7 +26,7 @@ export class Server {
     this.app.use(express.json());
   }
 
-  public routes() {
+  private routes() {
     this.app.use(router);
   }
 }
