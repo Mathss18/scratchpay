@@ -1,6 +1,6 @@
 import { PetClinicsProvider } from "./pet-clinics.provider";
 
-describe("ClinicController", () => {
+describe("Pet Clinics Provider Test", () => {
   let petClinicProvider: PetClinicsProvider;
 
   beforeEach(() => {

@@ -3,7 +3,7 @@ import { ClinicService } from "../services/clinic.service";
 import { FakeClinicsProviderMock } from "../__mocks__/fake-clinics.provider";
 import { ClinicController } from "./clinic.controller";
 
-describe("ClinicController", () => {
+describe("Clinic Controller Test", () => {
   let clinicService: ClinicService;
   let clinicController: ClinicController;
 

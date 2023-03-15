@@ -1,8 +1,7 @@
-import express from "express";
 import { Server } from "./server";
 import request from "supertest";
 
-describe("Server", () => {
+describe("Server Test", () => {
   let server: Server;
   beforeAll(() => {
     server = new Server(3001);

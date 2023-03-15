@@ -1,6 +1,5 @@
 import express, { Request } from "express";
 import { router } from "./router";
-import rateLimit from "express-rate-limit";
 import { Server as HttpServer } from "http";
 export class Server {
   public app: express.Application;

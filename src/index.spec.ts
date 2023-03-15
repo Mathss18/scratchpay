@@ -3,7 +3,7 @@ import { Server } from "./server";
 
 jest.mock("./server");
 
-describe("Main", () => {
+describe("Main Tests", () => {
   let main: Main;
   let serverMock: jest.Mocked<Server>;
 

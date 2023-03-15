@@ -1,7 +1,7 @@
 import { ClinicService } from "../services/clinic.service";
 import { FakeClinicsProviderMock } from "../__mocks__/fake-clinics.provider";
 
-describe("ClinicController", () => {
+describe("Clinic Service Tests", () => {
   let clinicService: ClinicService;
 
   beforeEach(() => {
