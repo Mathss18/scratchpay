@@ -11,15 +11,13 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
 
-    - name: Use Node.js 18
+    - name: Use Node.js 18.14
       uses: actions/setup-node@v2
       with:
-        node-version: '18'
+        node-version: '18.14'
       
     - name: 🔨 Build Project
-      run: |
-        npm ci
-        npm run build
+      run: npm ci
     
     - name: 🔨 Run all tests
       run: npm test
